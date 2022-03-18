@@ -1,8 +1,21 @@
 import styled from "@emotion/styled";
 
-export const Container = styled.div`
+export const ContainerParent = styled.div`
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+`;
+
+export const ContainerChild = styled.div`
+    border: solid 1px black;
     width: 1200px;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 `;
 
 export const Head = styled.h1`
@@ -20,14 +33,36 @@ export const Head = styled.h1`
 
 export const Info = styled.div`
     padding-bottom: 40px;
-    padding-left: 100px;
     display: flex;
 `;
 
 export const WriterContainer = styled.div`
     display: flex;
     flex-direction: column;
-    padding-left: 101px;
+`;
+
+export const WriterError = styled.div`
+    color: red;
+    height: 10px;
+    font-size: 11px;
+`;
+
+export const PasswordError = styled.div`
+    color: red;
+    height: 10px;
+    font-size: 11px;
+`;
+
+export const TitleError = styled.div`
+    color: red;
+    height: 10px;
+    font-size: 11px;
+`;
+
+export const ContextError = styled.div`
+    color: red;
+    height: 10px;
+    font-size: 11px;
 `;
 
 export const Writer = styled.div`
@@ -40,7 +75,7 @@ export const Writer = styled.div`
     padding-bottom: 16px;
 `;
 
-export const NameInput = styled.input`
+export const WriterInput = styled.input`
     width: 400px;
     height: 52px;
     background: #ffffff;
@@ -56,7 +91,7 @@ export const NameInput = styled.input`
 export const PassWordContainer = styled.div`
     display: flex;
     flex-direction: column;
-    padding-left: 24px;
+    padding-left: 40px;
 `;
 
 export const PassWord = styled.div`
@@ -87,7 +122,6 @@ export const TitleContainer = styled.div`
     display: flex;
     flex-direction: column;
     padding-bottom: 40px;
-    padding-left: 201px;
 `;
 
 export const Title = styled.div`
@@ -120,7 +154,6 @@ export const ContextContainer = styled.div`
     display: flex;
     flex-direction: column;
     padding-bottom: 40px;
-    padding-left: 201px;
 `;
 
 export const Context = styled.div`
@@ -148,7 +181,6 @@ export const AddressContainer = styled.div`
     display: flex;
     flex-direction: column;
     padding-bottom: 37px;
-    padding-left: 201px;
 `;
 
 export const Address = styled.div`
@@ -211,7 +243,7 @@ export const AddressFirst = styled.input`
     margin-bottom: 30px;
 `;
 
-export const AddressSecond = styled.input`
+export const AddressDetail = styled.input`
     width: 824px;
     height: 52px;
     background: #ffffff;
@@ -222,7 +254,6 @@ export const AddressSecond = styled.input`
 export const YoutubeContainer = styled.div`
     display: flex;
     flex-direction: column;
-    padding-left: 201px;
     padding-bottom: 40px;
 `;
 
@@ -252,7 +283,6 @@ export const YoutubeInput = styled.input`
 
 export const PhotoContainer = styled.div`
     width: 824px;
-    padding-left: 201px;
     padding-bottom: 40px;
 `;
 
@@ -295,7 +325,6 @@ export const SetContainer = styled.div`
     display: flex;
     flex-direction: column;
     width: 824px;
-    padding-left: 201px;
 `;
 
 export const Set = styled.div`
