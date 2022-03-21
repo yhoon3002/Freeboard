@@ -44,9 +44,10 @@ import {
     PasswordError,
     TitleError,
     ContextError,
-} from "../../../styles/index";
+} from "../../../styles/new";
 import { useState } from "react";
 import { useMutation, gql } from "@apollo/client";
+import { useRouter } from "next/router";
 
 const CREATE_BOARD = gql`
     mutation createBoard($createBoardInput: CreateBoardInput!) {
@@ -56,13 +57,24 @@ const CREATE_BOARD = gql`
             title
             contents
             youtubeUrl
+            likeCount
+            dislikeCount
+
+            boardAddress {
+                zipcode
+                address
+                addressDetail
+            }
+            createdAt
         }
     }
 `;
 
 const FreeBoard = () => {
-    //graphql
+    // graphql
     const [callApi] = useMutation(CREATE_BOARD);
+    // router
+    const router = useRouter();
 
     // (State) 이름
     const [writer, setWriter] = useState("");
@@ -108,42 +120,86 @@ const FreeBoard = () => {
         }
     }
 
+    // 유튜브 Url
+    const [youtubeUrl, setYoutubeUrl] = useState("");
+
+    const onChangeYoutubeUrl = () => {
+        setYoutubeUrl(event.target.value);
+    };
+
+    // 우편번호
+    const [zipcode, setZipcode] = useState("");
+
+    const onChangeZipcode = () => {
+        setZipcode(event.target.value);
+    };
+
+    // 주소
+    const [address, setAddress] = useState("");
+
+    const onChangeAddress = () => {
+        setAddress(event.target.value);
+    };
+
+    // 상세 주소
+    const [addressDetail, setAddressDetail] = useState("");
+
+    const onChangeAddressDetail = () => {
+        setAddressDetail(event.target.value);
+    };
+
+    // 사진
+
     // 등록 버튼 눌렀을 때
     const onClickRegister = async () => {
-        if (writer === "") {
-            setWriterError("이름을 입력해주세요!!");
-        }
+        try {
+            if (writer === "") {
+                setWriterError("이름을 입력해주세요!!");
+            }
 
-        if (password === "") {
-            setPasswordError("비밀번호를 입력해주세요!!");
-        }
+            if (password === "") {
+                setPasswordError("비밀번호를 입력해주세요!!");
+            }
 
-        if (title == "") {
-            setTitleError("제목을 입력해주세요!!");
-        }
+            if (title == "") {
+                setTitleError("제목을 입력해주세요!!");
+            }
 
-        if (contents == "") {
-            setContentsError("내용을 입력해주세요!!");
-        }
+            if (contents == "") {
+                setContentsError("내용을 입력해주세요!!");
+            }
 
-        if (
-            writer !== "" &&
-            password !== "" &&
-            title !== "" &&
-            contents !== ""
-        ) {
-            const apiResult = await callApi({
-                variables: {
-                    createBoardInput: {
-                        writer: writer,
-                        password: password,
-                        title: title,
-                        contents: contents,
+            if (
+                writer !== "" &&
+                password !== "" &&
+                title !== "" &&
+                contents !== ""
+            ) {
+                const apiResult = await callApi({
+                    variables: {
+                        createBoardInput: {
+                            writer: writer,
+                            password: password,
+                            title: title,
+                            contents: contents,
+                            youtubeUrl: youtubeUrl,
+                            boardAddress: {
+                                zipcode: zipcode,
+                                address: address,
+                                addressDetail: addressDetail,
+                            },
+                        },
                     },
-                },
-            });
-            console.log(apiResult.data.createBoard._id);
-            alert("게시물이 정상 등록되었습니다.");
+                });
+                console.log(apiResult.data.createBoard._id);
+                alert("게시물이 정상 등록되었습니다.");
+                alert("등록한 게시물 페이지로 이동합니다.");
+                router.push(
+                    `/boards/new_detail/${apiResult.data.createBoard._id}`
+                );
+            }
+        } catch (error) {
+            alert(error.message);
         }
     };
 
@@ -195,6 +251,7 @@ const FreeBoard = () => {
                         <AddressInput
                             type="text"
                             placeholder="07250"
+                            onChange={onChangeZipcode}
                         ></AddressInput>
                         <AddressSearchInput
                             type="text"
@@ -202,8 +259,14 @@ const FreeBoard = () => {
                         ></AddressSearchInput>
                     </AddressInputContainer>
                     <AddressSearchContainer>
-                        <AddressFirst type="text"></AddressFirst>
-                        <AddressDetail type="text"></AddressDetail>
+                        <AddressFirst
+                            type="text"
+                            onChange={onChangeAddress}
+                        ></AddressFirst>
+                        <AddressDetail
+                            type="text"
+                            onChange={onChangeAddressDetail}
+                        ></AddressDetail>
                     </AddressSearchContainer>
                 </AddressContainer>
                 <YoutubeContainer>
@@ -211,6 +274,7 @@ const FreeBoard = () => {
                     <YoutubeInput
                         type="text"
                         placeholder="링크를 복사해주세요."
+                        onChange={onChangeYoutubeUrl}
                     ></YoutubeInput>
                 </YoutubeContainer>
                 <PhotoContainer>

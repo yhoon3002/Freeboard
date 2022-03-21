@@ -22,12 +22,6 @@ export const Wrapper = styled.div`
     padding-top: 80px;
 `;
 
-export const Error = styled.div`
-    color: red;
-    height: 10px;
-    font-size: 11px;
-`;
-
 export const H3 = styled.h3`
     font-size: 32px;
     color: #0068ff;

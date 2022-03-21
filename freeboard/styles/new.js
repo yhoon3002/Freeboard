@@ -91,7 +91,7 @@ export const WriterInput = styled.input`
 export const PassWordContainer = styled.div`
     display: flex;
     flex-direction: column;
-    padding-left: 40px;
+    padding-left: 24px;
 `;
 
 export const PassWord = styled.div`
@@ -166,7 +166,7 @@ export const Context = styled.div`
     padding-bottom: 16px;
 `;
 
-export const ContextInput = styled.input`
+export const ContextInput = styled.textarea`
     width: 824px;
     height: 480px;
     padding-left: 16px;

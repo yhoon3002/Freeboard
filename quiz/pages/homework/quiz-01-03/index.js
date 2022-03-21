@@ -26,26 +26,34 @@ import {
 } from "./indexcss";
 
 export default function QuizThird() {
+    // const Notice = styled.div(
+    //     {
+    //         fontSize: 30,
+    //         color: "red",
+    //     },
+    //     (props) => ({ color: props.color })
+    // );
+
     return (
         <WrapperParent>
             <WrapperChild>
                 <WrapperHeader>
                     <StatusBar></StatusBar>
                     <HeaderImg>
-                        <img src="./images/search/search.png" />
+                        <img src="/image/search/search.png" />
                     </HeaderImg>
                     <HeaderTitle>
                         <HeaderTitleText>
                             <My>마이</My>
                         </HeaderTitleText>
                         <Profile>
-                            <img src="/images/profile/profile.png" />
+                            <img src="/image/profile/profile.png" />
                             <Name>임정아</Name>
-                            <img src="/images/arrowRight/arrow-right.png" />
+                            <img src="/image/arrowRight/arrow-right.png" />
                         </Profile>
                     </HeaderTitle>
                     <Nav>
-                        <Notice>공지사항</Notice>
+                        <Notice color="lightgreen">공지사항</Notice>
                         <Event>이벤트</Event>
                         <FaQ>FAQ</FaQ>
                         <QaA>Q&A</QaA>
@@ -59,7 +67,7 @@ export default function QuizThird() {
                                 <Question>리뷰 작성은 어떻게 하나요?</Question>
                             </SectionQaADetail>
                             <div>
-                                <img src="/images/arrowUnder/arrow-under.png" />
+                                <img src="/image/arrowUnder/arrow-under.png" />
                             </div>
                         </SectionQaA>
                         <SectionQaA>
@@ -70,7 +78,7 @@ export default function QuizThird() {
                                 </Question>
                             </SectionQaADetail>
                             <div>
-                                <img src="/images/arrowUnder/arrow-under.png" />
+                                <img src="/image/arrowUnder/arrow-under.png" />
                             </div>
                         </SectionQaA>
                         <SectionQaA>
@@ -81,7 +89,7 @@ export default function QuizThird() {
                                 </Question>
                             </SectionQaADetail>
                             <div>
-                                <img src="/images/arrowUnder/arrow-under.png" />
+                                <img src="/image/arrowUnder/arrow-under.png" />
                             </div>
                         </SectionQaA>
                         <SectionQaA>
@@ -90,7 +98,7 @@ export default function QuizThird() {
                                 <Question>회원탈퇴를 하고싶어요.</Question>
                             </SectionQaADetail>
                             <div>
-                                <img src="/images/arrowUnder/arrow-under.png" />
+                                <img src="/image/arrowUnder/arrow-under.png" />
                             </div>
                         </SectionQaA>
                         <SectionQaA>
@@ -101,7 +109,7 @@ export default function QuizThird() {
                                 </Question>
                             </SectionQaADetail>
                             <div>
-                                <img src="/images/arrowUnder/arrow-under.png" />
+                                <img src="/image/arrowUnder/arrow-under.png" />
                             </div>
                         </SectionQaA>
                         <SectionQaA>
@@ -110,26 +118,26 @@ export default function QuizThird() {
                                 <Question>비밀번호를 변경하고 싶어요.</Question>
                             </SectionQaADetail>
                             <div>
-                                <img src="/images/arrowUnder/arrow-under.png" />
+                                <img src="/image/arrowUnder/arrow-under.png" />
                             </div>
                         </SectionQaA>
                     </SectionChild>
                     <FooterParent>
                         <FooterChild>
                             <FooterNav>
-                                <img src="/images/home/home.png" />
+                                <img src="/image/home/home.png" />
                                 <span>홈</span>
                             </FooterNav>
                             <FooterNav>
-                                <img src="/images/location/location.png" />
+                                <img src="/image/location/location.png" />
                                 <span>잇츠로드</span>
                             </FooterNav>
                             <FooterNav>
-                                <img src="/images/heart/heart.png" />
+                                <img src="/image/heart/heart.png" />
                                 <span>마이찜</span>
                             </FooterNav>
                             <FooterNav>
-                                <img src="/images/my/my.png" />
+                                <img src="/image/my/my.png" />
                                 <span>마이</span>
                             </FooterNav>
                         </FooterChild>
