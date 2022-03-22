@@ -2,12 +2,12 @@ import styled from "@emotion/styled";
 import reactPlayer from "react-player";
 
 export const WrapperParent = styled.div`
-    width: 100%
-    display : flex;
+    width: 100%;
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    margin-left: 161px;
+    margin-left: 100px;
 `;
 
 export const WrapperChild = styled.div`
@@ -23,23 +23,6 @@ export const WrapperChild = styled.div`
     padding-left: 102px;
     padding-right: 102px;
     padding-bottom: 80px;
-`;
-export const LocationDetailContainer = styled.div``;
-
-export const LocationDetail = styled.div`
-    width: 376px;
-    height: 64px;
-
-    margin-top: 20px;
-    margin-left: 0px;
-    margin-right: 118px;
-    border: 1px solid red;
-`;
-
-export const IconImg = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 `;
 
 export const Profile = styled.div`
@@ -87,22 +70,43 @@ export const ProfileDate = styled.div`
     margin-top: 5px;
 `;
 
+export const ProfileRightWrapper = styled.div``;
+
 export const ProfileRight = styled.div`
     display: flex;
+    flex-direction: column;
+`;
+
+export const IconImgWrapper = styled.div`
+    display: flex;
     flex-direction: row;
-    align-items: center;
+    margin-bottom: 10px;
+    margin-top: 40px;
+    margin-left: 80px;
 `;
 
 export const ClipImg = styled.img`
-    width: 18px;
-    height: 26px;
+    width: 32px;
+    height: 32px;
+    margin-right: 12px;
 `;
 
 export const LocationImg = styled.img`
-    width: 18px;
-    height: 26px;
-    margin-left: 29.33px;
+    width: 32px;
+    height: 32px;
     cursor: pointer;
+`;
+
+export const LocationDetailWrapper = styled.div``;
+
+export const LocationDetail = styled.div`
+    position: absolute;
+    width: 400px;
+    height: 80px;
+    right: 105px;
+    top: 40px;
+    border: 1px solid red;
+    font-size: 20px;
 `;
 
 export const Line = styled.div`
@@ -151,7 +155,7 @@ export const LikeOrNot = styled.div`
     width: 120px;
 
     display: flex;
-    flex-dirction: row;
+    flex-direction: row;
     justify-content: center;
 
     margin-left: 448px;

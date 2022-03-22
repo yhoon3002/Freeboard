@@ -11,7 +11,7 @@ import {
     ProfileDetail,
     ProfileName,
     ProfileDate,
-    ProfileRight,
+    ProfileRightWrapper,
     ClipImg,
     LocationImg,
     Line,
@@ -27,9 +27,10 @@ import {
     Dislike,
     DislikeImg,
     DislikeCount,
+    LocationDetailWrapper,
     LocationDetail,
-    LocationDetailContainer,
-    IconImg,
+    IconImgWrapper,
+    ProfileRight,
 } from "../../../../styles/boardId";
 
 const FETCH_BOARD = gql`
@@ -86,22 +87,30 @@ const FreeBoardDetail = () => {
                         </ProfileDetail>
                     </ProfileLeft>
 
-                    <ProfileRight>
-                        <LocationDetailContainer>
-                            <ClipImg src="/image/search/search.png"></ClipImg>
-                        </LocationDetailContainer>
-                        <IconImg>
-                            {isOpen
-                                ? `${data.fetchBoard.boardAddress.address}
-                            ${data.fetchBoard.boardAddress.addressDetail}`
-                                : null}
-
-                            <LocationImg
-                                src="/image/location/location.png"
-                                onClick={onClickLocationImg}
-                            ></LocationImg>
-                        </IconImg>
-                    </ProfileRight>
+                    <ProfileRightWrapper>
+                        <ProfileRight>
+                            <LocationDetailWrapper>
+                                {isOpen ? (
+                                    <LocationDetail>
+                                        `${data.fetchBoard.boardAddress.address}
+                                        $
+                                        {
+                                            data.fetchBoard.boardAddress
+                                                .addressDetail
+                                        }
+                                        `
+                                    </LocationDetail>
+                                ) : null}
+                            </LocationDetailWrapper>
+                            <IconImgWrapper>
+                                <ClipImg src="/image/search/search.png"></ClipImg>
+                                <LocationImg
+                                    src="/image/location/location.png"
+                                    onClick={onClickLocationImg}
+                                ></LocationImg>
+                            </IconImgWrapper>
+                        </ProfileRight>
+                    </ProfileRightWrapper>
                 </Profile>
                 <Line></Line>
                 <Context>

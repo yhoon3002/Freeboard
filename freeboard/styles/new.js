@@ -114,7 +114,7 @@ export const PassWordInput = styled.input`
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
-    color: color: #BDBDBD;
+    color: #bdbdbd;
     padding-left: 16px;
 `;
 
