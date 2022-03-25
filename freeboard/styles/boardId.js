@@ -103,7 +103,7 @@ export const LocationDetail = styled.div`
     position: absolute;
     width: 400px;
     height: 80px;
-    right: 105px;
+    right: 415px;
     top: 40px;
     border: 1px solid red;
     font-size: 20px;
