@@ -78,11 +78,11 @@ const BoardFetchPresenter = (props) => {
                 </S.Context>
             </S.WrapperChild>
             <S.ListUpdateDelete>
-                <S.ToList>목록으로</S.ToList>
+                <S.ToList onClick={props.onClickToList}>목록으로</S.ToList>
                 <S.ToUpdate onClick={props.onClickToUpdate}>
                     수정하기
                 </S.ToUpdate>
-                <S.ToDelete>삭제하기</S.ToDelete>
+                <S.ToDelete onClick={props.onClickDelete}>삭제하기</S.ToDelete>
             </S.ListUpdateDelete>
         </S.WrapperParent>
     );

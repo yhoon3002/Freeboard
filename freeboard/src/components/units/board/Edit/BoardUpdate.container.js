@@ -8,6 +8,10 @@ import { useState } from "react";
 
 const BoardUpdateContainer = () => {
     const router = useRouter();
+    console.log("router query : ");
+    // console.log(router.query);
+    // console.log("router : " + router);
+    // console.log("boardId : " + router.query.boardId);
     const [updateBoard] = useMutation(UPDATE_BOARD);
 
     const [writer, setWriter] = useState("");
@@ -132,9 +136,10 @@ const BoardUpdateContainer = () => {
                             },
                         },
                         password: password,
-                        boardId: boardId,
+                        boardId: router.query.boardId,
                     },
                 });
+
                 alert("수정이 완료되었습니다!");
                 alert("수정한 게시물 페이지로 이동합니다.");
                 router.push(`/boards/${router.query.boardId}`);
@@ -152,7 +157,7 @@ const BoardUpdateContainer = () => {
             passwordError={passwordError}
             onChangeTitle={onChangeTitle}
             titleError={titleError}
-            onChangecontents={onChangeContents}
+            onChangeContents={onChangeContents}
             contentsError={contentsError}
             onChangeYoutubeUrl={onChangeYoutubeUrl}
             onChangeZipcode={onChangeZipcode}

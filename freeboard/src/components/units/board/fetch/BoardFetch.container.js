@@ -3,7 +3,7 @@
 import { useRouter } from "next/router";
 import { useQuery, useMutation } from "@apollo/client";
 import { useState } from "react";
-import { FETCH_BOARD, UPDATE_BOARD } from "./BoardFetch.queries";
+import { FETCH_BOARD, DELETE_BOARD } from "./BoardFetch.queries";
 import BoardFetchPresenter from "./BoardFetch.presenter";
 
 const BoardFetchContainer = (props) => {
@@ -13,6 +13,8 @@ const BoardFetchContainer = (props) => {
     const { data } = useQuery(FETCH_BOARD, {
         variables: { boardId: router.query.boardId },
     });
+
+    const [deleteBoard] = useMutation(DELETE_BOARD);
 
     const [isOpen, isOpenAddressDetail] = useState(false);
 
@@ -24,11 +26,25 @@ const BoardFetchContainer = (props) => {
         router.push(`/boards/${router.query.boardId}/update`);
     };
 
+    const onClickToList = async () => {
+        router.push(`/boards`);
+    };
+
+    const onClickDelete = async () => {
+        deleteBoard({
+            variables: { boardId: router.query.boardId },
+        });
+        alert("게시글이 삭제 되었습니다!");
+        router.push(`/boards`);
+    };
+
     return (
         <BoardFetchPresenter
             isOpen={isOpen}
             onClickLocationImg={onClickLocationImg}
             onClickToUpdate={onClickToUpdate}
+            onClickToList={onClickToList}
+            onClickDelete={onClickDelete}
             data={data}
         />
     );

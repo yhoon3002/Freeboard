@@ -1,6 +1,7 @@
 // This Is For Board Detail Queries Component
 
 import { gql } from "@apollo/client";
+
 export const FETCH_BOARD = gql`
     query fetchBoard($boardId: ID!) {
         fetchBoard(boardId: $boardId) {
@@ -18,5 +19,11 @@ export const FETCH_BOARD = gql`
             }
             createdAt
         }
+    }
+`;
+
+export const DELETE_BOARD = gql`
+    mutation deleteBoard($boardId: ID!) {
+        deleteBoard(boardId: $boardId)
     }
 `;
