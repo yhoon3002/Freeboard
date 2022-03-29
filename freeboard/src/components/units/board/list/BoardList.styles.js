@@ -17,8 +17,8 @@ export const SearchButton = styled.button`
     height: 70px;
 
     &:hover {
-        background-color: purple;
-        color: red;
+        background-color: blueviolet;
+        color: blue;
     }
 `;
 
