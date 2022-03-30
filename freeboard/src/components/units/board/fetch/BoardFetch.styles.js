@@ -4,12 +4,12 @@ import styled from "@emotion/styled";
 import reactPlayer from "react-player";
 
 export const WrapperParent = styled.div`
-    width: 100%;
+    width: 1200px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    margin-left: 20px;
+    margin-left: 200px;
 `;
 
 export const WrapperChild = styled.div`
