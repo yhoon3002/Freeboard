@@ -1,5 +1,7 @@
 // This Is For Board Comment Write Queries
 
+import { gql } from "@apollo/client";
+
 export const CREATE_BOARD_COMMENT = gql`
     mutation createBoardComment(
         $createBoardCommentInput: CreateBoardCommentInput!
@@ -12,11 +14,6 @@ export const CREATE_BOARD_COMMENT = gql`
             _id
             writer
             contents
-            rating
-            user
-            cratedAt
-            updatedAt
-            deletedAt
         }
     }
 `;
