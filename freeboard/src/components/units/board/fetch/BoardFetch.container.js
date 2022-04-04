@@ -11,7 +11,7 @@ const BoardFetchContainer = (props) => {
     // console.log("boardId router 출력 : " + router);
 
     const { data } = useQuery(FETCH_BOARD, {
-        variables: { boardId: router.query.boardId },
+        variables: { boardId: String(router.query.boardId) },
     });
 
     const [deleteBoard] = useMutation(DELETE_BOARD);

@@ -12,6 +12,8 @@ const BoardCommentWriteContainer = () => {
     const [writer, setWriter] = useState("");
     const [password, setPassword] = useState("");
     const [contents, setContents] = useState("");
+    const [star, setStar] = useState(0);
+
     const [createBoardComment] = useMutation(CREATE_BOARD_COMMENT);
 
     const onClickRegister = async () => {
@@ -22,6 +24,7 @@ const BoardCommentWriteContainer = () => {
                         writer: writer,
                         password: password,
                         contents: contents,
+                        rating: star,
                     },
                     boardId: String(router.query.boardId),
                 },
@@ -35,6 +38,7 @@ const BoardCommentWriteContainer = () => {
         } catch (error) {
             alert(error.message);
         }
+        alert("등록완료!");
     };
 
     const onChangeWriter = (e) => {
@@ -49,12 +53,17 @@ const BoardCommentWriteContainer = () => {
         setContents(e.target.value);
     };
 
+    const onChangeStar = (value) => {
+        setStar(value);
+    };
+
     return (
         <BoardCommentWritePresenter
             onChangeWriter={onChangeWriter}
             onChangePassword={onChangePassword}
             onChangeContents={onChangeContents}
             onClickRegister={onClickRegister}
+            onChangeStar={onChangeStar}
             contents={contents}
         />
     );

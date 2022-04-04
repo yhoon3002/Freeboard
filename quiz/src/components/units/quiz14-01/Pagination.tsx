@@ -16,7 +16,6 @@ export default function Pagination(props) {
     setStartPage((prev) => prev - 10);
     props.refetch({ page: startPage - 10 });
     props.setCurrent(props.current - 10);
-    console.log(disable);
   };
 
   const onClickNextPage = () => {

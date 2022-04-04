@@ -18,7 +18,7 @@ const BoardCommentWritePresenter = (props) => {
                     placeholder="비밀번호"
                     onChange={props.onChangePassword}
                 />
-                {/* Rating 기능 넣기 */}
+                <S.Star onChange={props.onChangeStar} />
             </S.CommenterInfo>
             <S.CommentInputWrapper>
                 <S.CommentInput

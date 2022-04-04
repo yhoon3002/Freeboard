@@ -1,4 +1,6 @@
+import "antd/dist/antd.css";
 import "../styles/globals.css";
+import Layout from "../src/components/commons/layout";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 
 export default function MyApp({ Component, pageProps }) {
@@ -9,7 +11,9 @@ export default function MyApp({ Component, pageProps }) {
 
     return (
         <ApolloProvider client={client}>
-            <Component {...pageProps} />;
+            <Layout>
+                <Component {...pageProps} />;
+            </Layout>
         </ApolloProvider>
     );
 }

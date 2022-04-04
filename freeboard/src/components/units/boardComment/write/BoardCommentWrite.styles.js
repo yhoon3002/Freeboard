@@ -2,6 +2,7 @@
 // This Is For Board Comment List Styles
 
 import styled from "@emotion/styled";
+import { Rate } from "antd";
 
 export const Wrapper = styled.div`
     width: 1200px;
@@ -25,6 +26,7 @@ export const Comments = styled.div`
 `;
 
 export const CommenterInfo = styled.div`
+    display: flex;
     margin-top: 40px;
     margin-bottom: 20px;
 `;
@@ -84,3 +86,5 @@ export const RegisterButton = styled.button`
     font-weight: 500;
     font-size: 16px;
 `;
+
+export const Star = styled(Rate)``;

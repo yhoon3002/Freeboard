@@ -7,8 +7,8 @@ const FreeBoardDetail = () => {
     return (
         <>
             <BoardFetchContainer />
-            <BoardCommentListContainer />
             <BoardCommentWriteContainer />
+            <BoardCommentListContainer />
         </>
     );
 };

@@ -1,14 +1,36 @@
 // This Is For Board List Container Component
-import { useQuery } from "@apollo/client";
+
 import BoardListPresenter from "./BoardList.presenter";
-import { FETCH_BOARDS } from "./BoardList.queries";
+import Pagination01Container from "../../../commons/pagination/01/Pagination01.conatiner";
+import { FETCH_BOARDS, FETCH_BOARDS_COUNT } from "./BoardList.queries";
+import { useQuery } from "@apollo/client";
+import { useRouter } from "next/router";
+import { useState } from "react";
 
 const BoardListContainer = () => {
-    const { data } = useQuery(FETCH_BOARDS);
+    const router = useRouter();
 
-    // console.log(data);
+    const { data, refetch } = useQuery(FETCH_BOARDS);
+    const { data: dataBoardsCount } = useQuery(FETCH_BOARDS_COUNT);
 
-    return <BoardListPresenter data={data} />;
+    const onClickMovetoDetail = (e) => {
+        if (e.target) {
+            router.push(`/boards/${e.target.id}`);
+        }
+    };
+
+    return (
+        <div>
+            <BoardListPresenter
+                data={data}
+                onClickMovetoDetail={onClickMovetoDetail}
+            />
+            <Pagination01Container
+                refetch={refetch}
+                count={dataBoardsCount?.fetchBoardsCount}
+            />
+        </div>
+    );
 };
 
 export default BoardListContainer;
