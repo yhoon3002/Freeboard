@@ -28,8 +28,14 @@ const BoardCommentWritePresenter = (props) => {
                 />
                 <S.CommentFooterWrapper>
                     <S.MaxLength>{props.contents.length}/100</S.MaxLength>
-                    <S.RegisterButton onClick={props.onClickRegister}>
-                        등록하기
+                    <S.RegisterButton
+                        onClick={
+                            props.isEdit
+                                ? props.onClickUpdate
+                                : props.onClickRegister
+                        }
+                    >
+                        {props.isEdit ? "수정하기" : "등록하기"}
                     </S.RegisterButton>
                 </S.CommentFooterWrapper>
             </S.CommentInputWrapper>
