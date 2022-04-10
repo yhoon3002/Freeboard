@@ -1,5 +1,6 @@
 // Banner Presenter
 
+import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import * as S from "./LayoutBanner.styles";
@@ -15,12 +16,9 @@ const LayoutBannerPresenter = () => {
 
     return (
         <S.Wrapper>
-            <S.BannerSlider {...settings}>
+            <Slider {...settings}>
                 <div>
                     <S.SliderItem>1</S.SliderItem>
-                </div>
-                <div>
-                    <S.SliderItem>2</S.SliderItem>
                 </div>
                 <div>
                     <S.SliderItem>3</S.SliderItem>
@@ -34,7 +32,7 @@ const LayoutBannerPresenter = () => {
                 <div>
                     <S.SliderItem>6</S.SliderItem>
                 </div>
-            </S.BannerSlider>
+            </Slider>
         </S.Wrapper>
     );
 };

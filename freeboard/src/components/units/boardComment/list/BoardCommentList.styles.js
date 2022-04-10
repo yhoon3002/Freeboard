@@ -4,6 +4,7 @@ import { Rate } from "antd";
 export const Wrapper = styled.div`
     width: 1200px;
     padding-left: 200px;
+    background-color: purple;
 `;
 
 export const CommentWrapper = styled.div`

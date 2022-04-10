@@ -4,11 +4,14 @@ import Slider from "react-slick";
 export const Wrapper = styled.div`
     width: 1920px;
     height: 400px;
+    margin: 0 auto;
 `;
 
 export const SliderItem = styled.h3`
     height: 350px;
-    margin: auto;
+    margin: 0 auto;
 `;
 
-export const BannerSlider = styled(Slider)``;
+export const BannerSlider = styled(Slider)`
+    margin: 0 auto;
+`;

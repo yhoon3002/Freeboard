@@ -1,7 +1,7 @@
 // This Is For Board Detail Presenter Component
 
 import * as S from "./BoardFetch.styles";
-
+import { Tooltip } from "antd";
 const BoardFetchPresenter = (props) => {
     return (
         <S.WrapperParent>
@@ -26,19 +26,16 @@ const BoardFetchPresenter = (props) => {
                         <S.ProfileRight>
                             <S.LocationDetailWrapper>
                                 {props.isOpen ? (
-                                    <S.LocationDetail>
-                                        `$
+                                    <Tooltip placement="topRight">
                                         {
                                             props.data?.fetchBoard?.boardAddress
                                                 ?.address
                                         }
-                                        $
                                         {
                                             props.data?.fetchBoard?.boardAddress
                                                 ?.addressDetail
                                         }
-                                        `
-                                    </S.LocationDetail>
+                                    </Tooltip>
                                 ) : null}
                             </S.LocationDetailWrapper>
                             <S.IconImgWrapper>

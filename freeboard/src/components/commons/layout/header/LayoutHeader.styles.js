@@ -1,25 +1,27 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
+    width: 1200px;
     height: 161px;
     padding-top: 60px;
+    margin: 0 auto;
+    background-color: blue;
 `;
 
 export const WrapperChild = styled.div`
     display: flex;
-    margin-left: 360px;
+    justify-content: space-between;
 `;
 
 export const Logo = styled.div`
     font-size: 30px;
     font-weight: bold;
-    font-family: "live";
     font-style: italic;
     cursor: pointer;
 `;
 
 export const HeaderRight = styled.div`
-    margin-left: 1200px;
+    margin-left: 0;
 `;
 
 export const LoginButton = styled.button`

@@ -6,6 +6,7 @@ export const Wrapper = styled.div`
     height: 80px;
     display: flex;
     justify-content: center;
+    background-color: #f00;
 `;
 
 export const NavigationMenuList = styled.div`

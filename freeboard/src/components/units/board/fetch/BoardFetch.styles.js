@@ -7,7 +7,7 @@ export const WrapperParent = styled.div`
     width: 1200px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     margin-left: 200px;
 `;
@@ -99,7 +99,9 @@ export const LocationImg = styled.img`
     cursor: pointer;
 `;
 
-export const LocationDetailWrapper = styled.div``;
+export const LocationDetailWrapper = styled.div`
+    display: flex;
+`;
 
 export const LocationDetail = styled.div`
     position: absolute;

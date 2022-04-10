@@ -5,6 +5,7 @@ import styled from "@emotion/styled";
 export const Wrapper = styled.span`
     display: flex;
     justify-content: center;
+    background-color: yellow;
 `;
 
 export const Arrow = styled.span`
