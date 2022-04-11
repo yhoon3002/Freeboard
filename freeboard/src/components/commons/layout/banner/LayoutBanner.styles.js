@@ -9,9 +9,6 @@ export const Wrapper = styled.div`
 
 export const SliderItem = styled.h3`
     height: 350px;
-    margin: 0 auto;
 `;
 
-export const BannerSlider = styled(Slider)`
-    margin: 0 auto;
-`;
+export const SliderWrapper = styled(Slider)``;

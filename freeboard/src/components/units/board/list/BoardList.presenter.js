@@ -7,22 +7,28 @@ const BoardListPresenter = (props) => {
     return (
         <S.Wrapper>
             <S.SearchTool>
-                <input type="text" placeholder="제목을 검색해주세요."></input>
-                <input
+                <div>
+                    <S.SearchImg src="image/search/search.png" />
+                    <S.SearchTitle
+                        type="text"
+                        placeholder="제목을 검색해주세요."
+                    ></S.SearchTitle>
+                </div>
+                <S.SearchDate
                     type="text"
                     placeholder="YYYY.MM.DD ~ YYYY.MM.DD"
-                ></input>
+                ></S.SearchDate>
                 <S.SearchButton>검색하기</S.SearchButton>
             </S.SearchTool>
             <table>
-                <thead>
-                    <S.TR>
+                <S.TH>
+                    <S.TRH>
                         <S.ThNumber>번호</S.ThNumber>
                         <S.Th>제목</S.Th>
                         <S.Th>작성자</S.Th>
                         <S.Th>날짜</S.Th>
-                    </S.TR>
-                </thead>
+                    </S.TRH>
+                </S.TH>
                 <tbody>
                     {props?.data?.fetchBoards.map((el, index) => (
                         <S.TR key={props.data._id}>

@@ -16,23 +16,23 @@ const LayoutBannerPresenter = () => {
 
     return (
         <S.Wrapper>
-            <Slider {...settings}>
+            <S.SliderWrapper {...settings}>
                 <div>
-                    <S.SliderItem>1</S.SliderItem>
+                    <S.SliderItem>안녕하세요1</S.SliderItem>
                 </div>
                 <div>
-                    <S.SliderItem>3</S.SliderItem>
+                    <S.SliderItem>안녕하세요2</S.SliderItem>
                 </div>
                 <div>
-                    <S.SliderItem>4</S.SliderItem>
+                    <S.SliderItem>안녕하세요3</S.SliderItem>
                 </div>
                 <div>
-                    <S.SliderItem>5</S.SliderItem>
+                    <S.SliderItem>안녕하세요4</S.SliderItem>
                 </div>
                 <div>
-                    <S.SliderItem>6</S.SliderItem>
+                    <S.SliderItem>안녕하세요5</S.SliderItem>
                 </div>
-            </Slider>
+            </S.SliderWrapper>
         </S.Wrapper>
     );
 };

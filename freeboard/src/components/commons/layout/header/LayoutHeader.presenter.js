@@ -4,7 +4,7 @@ const LayoutHeaderPresenter = (props) => {
     return (
         <S.Wrapper>
             <S.WrapperChild>
-                <S.Logo onClick={props.onClickLogo}>영훈이의 포폴</S.Logo>
+                <S.Logo onClick={props.onClickLogo}>0.Board</S.Logo>
                 <S.HeaderRight>
                     <S.LoginButton onClick={props.onClickLogin}>
                         로그인

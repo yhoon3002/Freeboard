@@ -96,7 +96,7 @@ const BoardCommentListPresenterItem = (props) => {
                                         disabled
                                     ></S.Star>
                                 </S.WriterStar>
-                                <div>{props.el?.contents}</div>
+                                <S.Contents>{props.el?.contents}</S.Contents>
                             </S.WriterStarWrapper>
                             <S.Pencil
                                 src="/image/pencil/pencil.png"
@@ -115,7 +115,6 @@ const BoardCommentListPresenterItem = (props) => {
                             {props.el?.createdAt.slice(8, 10)}
                         </div>
                     </S.CommentWrapper>
-                    ))
                 </S.Wrapper>
             )}
             {isEdit && (

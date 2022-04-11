@@ -17,7 +17,7 @@ const BoardCreatePresenter = (props) => {
                     <S.PassWordContainer>
                         <S.PassWord>비밀번호</S.PassWord>
                         <S.PassWordInput
-                            type="text"
+                            type="password"
                             placeholder="비밀번호를 입력해주세요."
                             onChange={props.onChangePassword}
                         ></S.PassWordInput>

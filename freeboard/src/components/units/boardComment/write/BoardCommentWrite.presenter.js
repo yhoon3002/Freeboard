@@ -14,7 +14,7 @@ const BoardCommentWritePresenter = (props) => {
                     onChange={props.onChangeWriter}
                 />
                 <S.PasswordInput
-                    type="text"
+                    type="password"
                     placeholder="비밀번호"
                     onChange={props.onChangePassword}
                 />

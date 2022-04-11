@@ -24,26 +24,15 @@ const BoardFetchPresenter = (props) => {
 
                     <S.ProfileRightWrapper>
                         <S.ProfileRight>
-                            <S.LocationDetailWrapper>
-                                {props.isOpen ? (
-                                    <Tooltip placement="topRight">
-                                        {
-                                            props.data?.fetchBoard?.boardAddress
-                                                ?.address
-                                        }
-                                        {
-                                            props.data?.fetchBoard?.boardAddress
-                                                ?.addressDetail
-                                        }
-                                    </Tooltip>
-                                ) : null}
-                            </S.LocationDetailWrapper>
+                            <S.LocationDetailWrapper></S.LocationDetailWrapper>
                             <S.IconImgWrapper>
                                 <S.ClipImg src="/image/search/search.png"></S.ClipImg>
-                                <S.LocationImg
-                                    src="/image/location/location.png"
-                                    onClick={props.onClickLocationImg}
-                                ></S.LocationImg>
+                                <Tooltip
+                                    placement="topRight"
+                                    title={`${props.data?.fetchBoard?.boardAddress?.address} ${props.data?.fetchBoard?.boardAddress?.addressDetail}`}
+                                >
+                                    <S.LocationImg src="/image/location/location.png"></S.LocationImg>
+                                </Tooltip>
                             </S.IconImgWrapper>
                         </S.ProfileRight>
                     </S.ProfileRightWrapper>
@@ -60,13 +49,19 @@ const BoardFetchPresenter = (props) => {
                     ></S.Youtube>
                     <S.LikeOrNot>
                         <S.Like>
-                            <S.LikeImg src="/image/heart/heart.png"></S.LikeImg>
+                            <S.LikeImg
+                                src="/image/heart/heart.png"
+                                onClick={props.onClickLikeImg}
+                            ></S.LikeImg>
                             <S.LikeCount>
                                 {props.data?.fetchBoard?.likeCount}
                             </S.LikeCount>
                         </S.Like>
                         <S.Dislike>
-                            <S.DislikeImg src="/image/arrowUnder/arrow-under.png"></S.DislikeImg>
+                            <S.DislikeImg
+                                src="/image/arrowUnder/arrow-under.png"
+                                onClick={props.onClickDislikeImg}
+                            ></S.DislikeImg>
                             <S.DislikeCount>
                                 {props.data?.fetchBoard?.dislikeCount}
                             </S.DislikeCount>

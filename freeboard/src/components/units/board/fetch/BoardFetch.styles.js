@@ -2,14 +2,11 @@
 
 import styled from "@emotion/styled";
 import reactPlayer from "react-player";
+import { Tooltip } from "antd";
 
 export const WrapperParent = styled.div`
     width: 1200px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-left: 200px;
+    margin: 0px auto;
 `;
 
 export const WrapperChild = styled.div`
@@ -179,8 +176,8 @@ export const Like = styled.div`
 export const LikeImg = styled.img`
     width: 20px;
     height: 20px;
-
     margin-bottom: 1px;
+    cursor: pointer;
 `;
 
 export const LikeCount = styled.div`
@@ -204,6 +201,7 @@ export const DislikeImg = styled.img`
     width: 20px;
     height: 20px;
     margin-bottom: 1px;
+    cursor: pointer;
 `;
 
 export const DislikeCount = styled.div`
@@ -218,6 +216,7 @@ export const DislikeCount = styled.div`
 export const ListUpdateDelete = styled.div`
     display: flex;
     flex-direction: row;
+    justify-content: center;
     margin-top: 60px;
 `;
 

@@ -3,8 +3,8 @@ import { Rate } from "antd";
 
 export const Wrapper = styled.div`
     width: 1200px;
-    padding-left: 200px;
-    background-color: purple;
+    margin: 0px auto;
+    margin-bottom: 15px;
 `;
 
 export const CommentWrapper = styled.div`
@@ -21,15 +21,22 @@ export const CommentLeft = styled.div`
 export const ProfileImg = styled.img`
     width: 40px;
     height: 40px;
+    margin-right: 15px;
 `;
 
-export const WriterStarWrapper = styled.div``;
+export const WriterStarWrapper = styled.div`
+    width: 1000px;
+`;
 
 export const WriterStar = styled.div`
     display: flex;
 `;
 
-export const Writer = styled.div``;
+export const Writer = styled.div`
+    margin-right: 10px;
+    margin-top: 10px;
+    font-weight: bold;
+`;
 
 export const Star = styled(Rate)``;
 
@@ -43,18 +50,18 @@ export const Aaa = styled.div`
 export const Pencil = styled.img`
     width: 18px;
     height: 18px;
-    margin-left: 500px;
+    margin-left: 70px;
     cursor: pointer;
 `;
 
 export const XImage = styled.img`
+    float: right;
     width: 18px;
     height: 18px;
     margin-left: 30px;
     cursor: pointer;
 `;
 
-export const Password = styled.input`
-    width: 100%;
-    margin-top: 10px;
+export const Contents = styled.div`
+    width: 700px;
 `;

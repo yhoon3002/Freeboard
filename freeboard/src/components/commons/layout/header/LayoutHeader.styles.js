@@ -5,7 +5,6 @@ export const Wrapper = styled.div`
     height: 161px;
     padding-top: 60px;
     margin: 0 auto;
-    background-color: blue;
 `;
 
 export const WrapperChild = styled.div`
@@ -26,6 +25,7 @@ export const HeaderRight = styled.div`
 
 export const LoginButton = styled.button`
     height: 50px;
+    margin-right: 30px;
     cursor: pointer;
 `;
 

@@ -4,7 +4,7 @@ import * as S from "./Pagination01.styles";
 const Pagination01Presenter = (props) => {
     return (
         <S.Wrapper>
-            <S.Arrow onClick={props.onClickPrevArrow}>{`<`}</S.Arrow>
+            <S.Arrow onClick={props.onClickPrevArrow}>{`< 이전페이지`}</S.Arrow>
             {new Array(10).fill(1).map(
                 (_, index) =>
                     props.startPage + index <= props.lastPage && (
@@ -20,7 +20,7 @@ const Pagination01Presenter = (props) => {
                         </S.PageNumber>
                     )
             )}
-            <S.Arrow onClick={props.onClickNextArrow}>{`>`}</S.Arrow>
+            <S.Arrow onClick={props.onClickNextArrow}>{`다음페이지 >`}</S.Arrow>
         </S.Wrapper>
     );
 };

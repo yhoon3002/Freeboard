@@ -3,7 +3,12 @@
 import { useRouter } from "next/router";
 import { useQuery, useMutation } from "@apollo/client";
 import { useState } from "react";
-import { FETCH_BOARD, DELETE_BOARD } from "./BoardFetch.queries";
+import {
+    FETCH_BOARD,
+    DELETE_BOARD,
+    LIKE_BOARD,
+    DISLIKE_BOARD,
+} from "./BoardFetch.queries";
 import BoardFetchPresenter from "./BoardFetch.presenter";
 
 const BoardFetchContainer = (props) => {
@@ -16,10 +21,32 @@ const BoardFetchContainer = (props) => {
 
     const [deleteBoard] = useMutation(DELETE_BOARD);
 
-    const [isOpen, isOpenAddressDetail] = useState(false);
+    const [likeBoard] = useMutation(LIKE_BOARD);
 
-    const onClickLocationImg = () => {
-        isOpenAddressDetail((isOpen) => !isOpen);
+    const [dislikeBoard] = useMutation(DISLIKE_BOARD);
+
+    const onClickLikeImg = () => {
+        likeBoard({
+            variables: { boardId: String(router.query.boardId) },
+            refetchQueries: [
+                {
+                    query: FETCH_BOARD,
+                    variables: { boardId: router.query.boardId },
+                },
+            ],
+        });
+    };
+
+    const onClickDislikeImg = () => {
+        dislikeBoard({
+            variables: { boardId: String(router.query.boardId) },
+            refetchQueries: [
+                {
+                    query: FETCH_BOARD,
+                    variables: { boardId: router.query.boardId },
+                },
+            ],
+        });
     };
 
     const onClickToUpdate = async () => {
@@ -40,11 +67,11 @@ const BoardFetchContainer = (props) => {
 
     return (
         <BoardFetchPresenter
-            isOpen={isOpen}
-            onClickLocationImg={onClickLocationImg}
             onClickToUpdate={onClickToUpdate}
             onClickToList={onClickToList}
             onClickDelete={onClickDelete}
+            onClickLikeImg={onClickLikeImg}
+            onClickDislikeImg={onClickDislikeImg}
             data={data}
         />
     );

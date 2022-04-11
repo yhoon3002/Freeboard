@@ -8,7 +8,8 @@ export const Wrapper = styled.div`
     width: 1200px;
     display: flex;
     flex-direction: column;
-    margin-left: 200px;
+    margin: 0px auto;
+    margin-bottom: 20px;
 `;
 
 export const Line = styled.div`
@@ -33,14 +34,14 @@ export const CommenterInfo = styled.div`
 
 export const WriterInput = styled.input`
     width: 180px;
-    height: 52px;
+    height: 42px;
     margin-right: 24px;
     padding-left: 20px;
 `;
 
 export const PasswordInput = styled.input`
     width: 180px;
-    height: 52px;
+    height: 42px;
     padding-left: 20px;
 `;
 
@@ -65,6 +66,7 @@ export const CommentFooterWrapper = styled.div`
 `;
 
 export const MaxLength = styled.div`
+    width: 80px;
     font-family: "Noto Sans CJK KR";
     font-style: normal;
     font-weight: 500;
@@ -75,10 +77,10 @@ export const MaxLength = styled.div`
 `;
 
 export const RegisterButton = styled.button`
-    width: 120px;
+    width: 130px;
     height: 100%;
     padding: 14px 16px;
-    margin-left: 1025px;
+    margin-left: 969px;
     background: #000000;
     color: #ffffff;
     font-family: "Noto Sans CJK KR";
@@ -87,4 +89,7 @@ export const RegisterButton = styled.button`
     font-size: 16px;
 `;
 
-export const Star = styled(Rate)``;
+export const Star = styled(Rate)`
+    margin-top: 6px;
+    margin-left: 20px;
+`;

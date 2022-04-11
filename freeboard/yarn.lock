@@ -551,6 +551,13 @@
   "resolved" "https://registry.npmjs.org/@types/prop-types/-/prop-types-15.7.4.tgz"
   "version" "15.7.4"
 
+"@types/react-infinite-scroller@^1.2.3":
+  "integrity" "sha512-l60JckVoO+dxmKW2eEG7jbliEpITsTJvRPTe97GazjF5+ylagAuyYdXl8YY9DQsTP9QjhqGKZROknzgscGJy0A=="
+  "resolved" "https://registry.npmjs.org/@types/react-infinite-scroller/-/react-infinite-scroller-1.2.3.tgz"
+  "version" "1.2.3"
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-slick@^0.23.8":
   "integrity" "sha512-SfzSg++/3uyftVZaCgHpW+2fnJFsyJEQ/YdsuqfOWQ5lqUYV/gY/UwAnkw4qksCj5jalto/T5rKXJ8zeFldQeA=="
   "resolved" "https://registry.npmjs.org/@types/react-slick/-/react-slick-0.23.8.tgz"
