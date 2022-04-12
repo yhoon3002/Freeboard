@@ -39,7 +39,11 @@ const MapBoardPage = () => {
   const { data, refetch } = useQuery<
     Pick<IQuery, "fetchBoards">,
     IQueryFetchBoardsArgs
-  >(FETCH_BOARDS);
+  >(
+    FETCH_BOARDS
+    // fetchPolicy: "cache-first", // default 값
+    // apollographql.com/docs/react에 자세한 설명이 나와있음
+  );
 
   // const onClickSearch = () => {
   //   refetch({ search, page: 1 });

@@ -32,7 +32,7 @@ const BoardCreateContainer = (props) => {
         }
     }
 
-    // (State) 제목
+    // 제목
     const [title, setTitle] = useState("");
     const [titleError, setTitleError] = useState("");
 
@@ -43,7 +43,7 @@ const BoardCreateContainer = (props) => {
         }
     }
 
-    // (State) 내용
+    // 내용
     const [contents, setContents] = useState("");
     const [contentsError, setContentsError] = useState("");
 
@@ -63,34 +63,50 @@ const BoardCreateContainer = (props) => {
 
     // 우편번호
     const [zipcode, setZipcode] = useState("");
-    const [zipcodeError, setZipcodeError] = useState("");
-
-    const onChangeZipcode = (e) => {
-        setZipcode(e.target.value);
-        if (e.target.value !== "") {
-            setZipcodeError("");
-        }
-    };
 
     // 주소
     const [address, setAddress] = useState("");
-    const [addressError, setAddressError] = useState("");
 
-    const onChangeAddress = (e) => {
-        setAddress(e.target.value);
-        if (e.target.value !== "") {
-        }
+    // 우편번호 검색 눌렀을 때
+    const [isClickedAddress, setIsClickedAddress] = useState(false);
+
+    const onClickAddressSearchInput = () => {
+        setIsClickedAddress(true);
+    };
+
+    // 모달 핸들러
+    const handleOk = () => {
+        setIsClickedAddress(false);
+    };
+
+    const handleCancel = () => {
+        setIsClickedAddress(false);
+    };
+
+    // Daum Post Code 핸들러
+    const [addressData, setAddressData] = useState("");
+
+    const handleComplete = (data) => {
+        setIsClickedAddress(false);
+        setZipcode(data.zonecode);
+        setAddress(data.address);
     };
 
     // 상세 주소
     const [addressDetail, setAddressDetail] = useState("");
-    const [addressDetailError, setAddressDetailError] = useState("");
 
     const onChangeAddressDetail = (e) => {
         setAddressDetail(e.target.value);
     };
 
     // 사진
+    const [fileUrls, setFileUrls] = useState(["", "", ""]);
+
+    const onChangeFileUrls = (fileUrl, index) => {
+        const newFileUrls = [...fileUrls];
+        newFileUrls[index] = fileUrl;
+        setFileUrls(newFileUrls);
+    };
 
     // 등록 버튼 눌렀을 때
     const onClickRegister = async () => {
@@ -111,26 +127,11 @@ const BoardCreateContainer = (props) => {
                 setContentsError("내용을 입력해주세요!!");
             }
 
-            if (zipcode === "") {
-                setZipcodeError("우편번호를 입력해주세요!!");
-            }
-
-            if (address === "") {
-                setAddressError("주소를 입력해주세요!!");
-            }
-
-            if (addressDetail === "") {
-                setAddressDetailError("상세주소를 입력해주세요!!");
-            }
-
             if (
                 writer !== "" &&
                 password !== "" &&
                 title !== "" &&
-                contents !== "" &&
-                zipcode !== "" &&
-                address !== "" &&
-                addressDetail !== ""
+                contents !== ""
             ) {
                 const apiResult = await callApi({
                     variables: {
@@ -169,13 +170,18 @@ const BoardCreateContainer = (props) => {
             onChangeContents={onChangeContents}
             contentsError={contentsError}
             onChangeYoutubeUrl={onChangeYoutubeUrl}
-            onChangeZipcode={onChangeZipcode}
-            zipcodeError={zipcodeError}
-            onChangeAddress={onChangeAddress}
-            addressError={addressError}
             onChangeAddressDetail={onChangeAddressDetail}
-            addressDetailError={addressDetailError}
             onClickRegister={onClickRegister}
+            onClickAddressSearchInput={onClickAddressSearchInput}
+            isClickedAddress={isClickedAddress}
+            handleOk={handleOk}
+            handleCancel={handleCancel}
+            handleComplete={handleComplete}
+            addressData={addressData}
+            zipcode={zipcode}
+            address={address}
+            onChangeFileUrls={onChangeFileUrls}
+            fileUrls={fileUrls}
         />
     );
 };

@@ -63,14 +63,46 @@ export const TRH = styled.tr`
 export const TR = styled.tr``;
 
 export const ThNumber = styled.th`
-    width: 35px;
+    width: 5%;
 `;
 
-export const Th = styled.th``;
+export const ThTitle = styled.th`
+    width: 70%;
+    padding: 10px;
+`;
+
+export const ThWriter = styled.th`
+    width: 15%;
+    padding: 10px;
+`;
+
+export const ThDate = styled.th`
+    width: 10%;
+    padding: 10px;
+`;
 
 export const Td = styled.td`
     text-align: center;
     height: 24px;
     margin-top: 14px;
     margin-bottom: 14px;
+    border-top: 1px solid #bdbdbd;
+    border-collapse: collapse;
+    padding: 10px;
+`;
+
+export const TdTitle = styled.td`
+    text-align: center;
+    height: 24px;
+    margin-top: 14px;
+    margin-bottom: 14px;
+    border-top: 1px solid #bdbdbd;
+    border-collapse: collapse;
+    padding: 10px;
+    cursor: pointer;
+
+    :hover {
+        color: blue;
+        font-weight: bold;
+    }
 `;

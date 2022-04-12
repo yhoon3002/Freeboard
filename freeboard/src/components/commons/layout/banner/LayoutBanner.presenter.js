@@ -7,31 +7,44 @@ import * as S from "./LayoutBanner.styles";
 
 const LayoutBannerPresenter = () => {
     const settings = {
-        dots: true,
+        className: "center",
+        centerMode: true,
         infinite: true,
         speed: 500,
-        slidesToShow: 1,
+        slidesToShow: 3,
         slidesToScroll: 1,
+        autoplay: true,
+        speed: 10,
+        autoplaySpeed: 10,
+        cssEase: "linear",
+        pauseOnHover: true,
+        fade: true,
     };
 
     return (
         <S.Wrapper>
             <S.SliderWrapper {...settings}>
-                <div>
-                    <S.SliderItem>안녕하세요1</S.SliderItem>
-                </div>
-                <div>
-                    <S.SliderItem>안녕하세요2</S.SliderItem>
-                </div>
-                <div>
-                    <S.SliderItem>안녕하세요3</S.SliderItem>
-                </div>
-                <div>
-                    <S.SliderItem>안녕하세요4</S.SliderItem>
-                </div>
-                <div>
-                    <S.SliderItem>안녕하세요5</S.SliderItem>
-                </div>
+                <S.SliderItem>
+                    <S.A />
+                </S.SliderItem>
+                <S.SliderItem>
+                    <S.B />
+                </S.SliderItem>
+                <S.SliderItem>
+                    <S.C />
+                </S.SliderItem>
+                <S.SliderItem>
+                    <S.D />
+                </S.SliderItem>
+                <S.SliderItem>
+                    <S.E />
+                </S.SliderItem>
+                <S.SliderItem>
+                    <S.F />
+                </S.SliderItem>
+                <S.SliderItem>
+                    <S.G />
+                </S.SliderItem>
             </S.SliderWrapper>
         </S.Wrapper>
     );

@@ -1,4 +1,9 @@
 import * as S from "./BoardCreate.styles";
+import DaumPostcode from "react-daum-postcode";
+import { Modal } from "antd";
+import { v4 as uuidv4 } from "uuid";
+import Uploads01Container from "../../../commons/uploads/01/Uploads01.container";
+
 const BoardCreatePresenter = (props) => {
     return (
         <S.ContainerParent>
@@ -48,29 +53,36 @@ const BoardCreatePresenter = (props) => {
                         <S.AddressInput
                             type="text"
                             placeholder="07250"
-                            onChange={props.onChangeZipcode}
+                            readOnly
+                            value={props.zipcode || ""}
                         ></S.AddressInput>
+                        {props.isClickedAddress && (
+                            <Modal
+                                visible={true}
+                                onOk={props.handleOk}
+                                onCancel={props.handleCancel}
+                            >
+                                <DaumPostcode
+                                    onComplete={props.handleComplete}
+                                />
+                            </Modal>
+                        )}
                         <S.AddressSearchInput
-                            type="text"
-                            placeholder="우편번호 검색"
-                        ></S.AddressSearchInput>
-                        <S.ZipcodeError>{props.zipcodeError}</S.ZipcodeError>
+                            onClick={props.onClickAddressSearchInput}
+                        >
+                            우편번호 검색
+                        </S.AddressSearchInput>
                     </S.AddressInputContainer>
                     <S.AddressSearchContainer>
                         <S.AddressFirst
                             type="text"
-                            onChange={props.onChangeAddress}
+                            readOnly
+                            value={props.address || ""}
                         ></S.AddressFirst>
-                        <S.AddressFirstError>
-                            {props.addressError}
-                        </S.AddressFirstError>
                         <S.AddressDetail
                             type="text"
                             onChange={props.onChangeAddressDetail}
                         ></S.AddressDetail>
-                        <S.AddressDetailError>
-                            {props.addressDetailError}
-                        </S.AddressDetailError>
                     </S.AddressSearchContainer>
                 </S.AddressContainer>
                 <S.YoutubeContainer>
@@ -83,11 +95,14 @@ const BoardCreatePresenter = (props) => {
                 </S.YoutubeContainer>
                 <S.PhotoContainer>
                     <S.Photo>사진 첨부</S.Photo>
-                    <S.PhotoInputContainer>
-                        <S.PhotoInput1></S.PhotoInput1>
-                        <S.PhotoInput2></S.PhotoInput2>
-                        <S.PhotoInput3></S.PhotoInput3>
-                    </S.PhotoInputContainer>
+                    {props.fileUrls.map((el, index) => (
+                        <Uploads01Container
+                            key={uuidv4()}
+                            index={index}
+                            fileUrl={el}
+                            onChangeFileUrls={props.onChangeFileUrls}
+                        />
+                    ))}
                 </S.PhotoContainer>
                 <S.SetContainer>
                     <S.Set>메인 설정</S.Set>

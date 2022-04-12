@@ -1,7 +1,6 @@
 // This Is For Board List Presenter Component
 
 import * as S from "./BoardList.styles";
-import Pagination01Container from "../../../commons/pagination/01/Pagination01.conatiner";
 
 const BoardListPresenter = (props) => {
     return (
@@ -24,21 +23,21 @@ const BoardListPresenter = (props) => {
                 <S.TH>
                     <S.TRH>
                         <S.ThNumber>번호</S.ThNumber>
-                        <S.Th>제목</S.Th>
-                        <S.Th>작성자</S.Th>
-                        <S.Th>날짜</S.Th>
+                        <S.ThTitle>제목</S.ThTitle>
+                        <S.ThWriter>작성자</S.ThWriter>
+                        <S.ThDate>날짜</S.ThDate>
                     </S.TRH>
                 </S.TH>
                 <tbody>
                     {props?.data?.fetchBoards.map((el, index) => (
                         <S.TR key={props.data._id}>
                             <S.Td>{10 - index}</S.Td>
-                            <S.Td
+                            <S.TdTitle
                                 id={el._id}
                                 onClick={props.onClickMovetoDetail}
                             >
                                 {el.title}
-                            </S.Td>
+                            </S.TdTitle>
                             <S.Td>{el.writer}</S.Td>
                             <S.Td>
                                 {el.createdAt.slice(0, 4)}.

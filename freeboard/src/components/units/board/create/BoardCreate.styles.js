@@ -227,19 +227,17 @@ export const AddressSearchContainer = styled.div`
     flex-direction: column;
 `;
 
-export const AddressSearchInput = styled.input`
+export const AddressSearchInput = styled.button`
     width: 124px;
     height: 52px;
     background: #000000;
+    font-family: "Noto Sans CJK KR";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    color: #ffffff;
     border: 1px solid #bdbdbd;
     box-sizing: border-box;
-    ::placeholder {
-        font-family: "Noto Sans CJK KR";
-        font-style: normal;
-        font-weight: 500;
-        font-size: 16px;
-        color: #ffffff;
-    }
     padding: 14px 10px;
 `;
 
@@ -248,6 +246,11 @@ export const AddressFirst = styled.input`
     height: 52px;
     background: #ffffff;
     border: 1px solid #bdbdbd;
+    padding-left: 15px;
+    font-family: "Noto Sans CJK KR";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
 `;
 
 export const AddressFirstError = styled.div`
@@ -261,8 +264,18 @@ export const AddressFirstError = styled.div`
 export const AddressDetail = styled.input`
     width: 824px;
     height: 52px;
+    padding-left: 15px;
+    font-family: "Noto Sans CJK KR";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
     background: #ffffff;
     border: 1px solid #bdbdbd;
+    padding-left: 15px;
+    font-family: "Noto Sans CJK KR";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
 `;
 
 export const AddressDetailError = styled.div`
@@ -317,30 +330,6 @@ export const Photo = styled.div`
     font-size: 16px;
     color: #000000;
     margin-bottom: 16px;
-`;
-
-export const PhotoInputContainer = styled.div`
-    display: flex;
-`;
-
-export const PhotoInput1 = styled.div`
-    width: 78px;
-    height: 78px;
-    background: #bdbdbd;
-    margin-right: 24px;
-`;
-
-export const PhotoInput2 = styled.div`
-    width: 78px;
-    height: 78px;
-    background: #bdbdbd;
-    margin-right: 24px;
-`;
-
-export const PhotoInput3 = styled.div`
-    width: 78px;
-    height: 78px;
-    background: #bdbdbd;
 `;
 
 export const SetContainer = styled.div`

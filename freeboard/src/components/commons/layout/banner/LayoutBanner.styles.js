@@ -7,8 +7,48 @@ export const Wrapper = styled.div`
     margin: 0 auto;
 `;
 
-export const SliderItem = styled.h3`
+export const SliderWrapper = styled(Slider)``;
+
+export const SliderItem = styled.div``;
+
+export const A = styled(Slider)`
+    width: 100%;
     height: 350px;
+    background-color: red;
 `;
 
-export const SliderWrapper = styled(Slider)``;
+export const B = styled(Slider)`
+    width: 100%;
+    height: 350px;
+    background-color: orange;
+`;
+
+export const C = styled(Slider)`
+    width: 100%;
+    height: 350px;
+    background-color: yellow;
+`;
+
+export const D = styled(Slider)`
+    width: 100%;
+    height: 350px;
+    background-color: green;
+`;
+
+export const E = styled(Slider)`
+    width: 100%;
+    height: 350px;
+    background-color: blue;
+`;
+
+export const F = styled(Slider)`
+    width: 100%;
+    height: 350px;
+    background-color: indigo;
+`;
+
+export const G = styled(Slider)`
+    width: 100%;
+    height: 350px;
+    background-color: purple;
+`;

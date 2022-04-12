@@ -11,6 +11,7 @@ import { AppProps } from "next/app";
 import { Global } from "@emotion/react";
 import { globalStyles } from "../src/commons/styles/globalStyles";
 import { createUploadLink } from "apollo-upload-client";
+import { RecoilRoot } from "recoil";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const uploadLink = createUploadLink({
@@ -23,10 +24,12 @@ function MyApp({ Component, pageProps }: AppProps) {
   });
   return (
     <ApolloProvider client={client}>
-      <Global styles={globalStyles} />
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <RecoilRoot>
+        <Global styles={globalStyles} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </RecoilRoot>
     </ApolloProvider>
   );
 }

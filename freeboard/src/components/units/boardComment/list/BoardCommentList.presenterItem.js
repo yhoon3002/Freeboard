@@ -83,6 +83,13 @@ const BoardCommentListPresenterItem = (props) => {
                     <input type="password" onChange={onChangeDeletePassword} />
                 </Modal>
             )}
+            {isEdit && (
+                <BoardCommentWrite
+                    isEdit={true}
+                    setIsEdit={setIsEdit}
+                    el={props.el}
+                />
+            )}
             {!isEdit && (
                 <S.Wrapper>
                     <S.CommentWrapper>
@@ -116,13 +123,6 @@ const BoardCommentListPresenterItem = (props) => {
                         </div>
                     </S.CommentWrapper>
                 </S.Wrapper>
-            )}
-            {isEdit && (
-                <BoardCommentWrite
-                    isEdit={true}
-                    setIsEdit={setIsEdit}
-                    el={props.el}
-                />
             )}
         </>
     );

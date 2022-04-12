@@ -150,7 +150,7 @@ export default function Home() {
     const [data, setData] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
-    const [q, setQuery] = useState("");
+    const [query, setQuery] = useState("");
     const [activateModal, setActivateModal] = useState(false);
     const [detail, setShowDetail] = useState(false);
     const [detailRequest, setDetailRequest] = useState(false);
@@ -160,7 +160,7 @@ export default function Home() {
         setError(null);
         setData(null);
 
-        fetch(`http://www.omdbapi.com/?apikey=${API_KEY}&s=${q}`)
+        fetch(`http://www.omdbapi.com/?apikey=${API_KEY}&s=${query}`)
             .then((resp) => resp)
             .then((resp) => resp.json())
             .then((response) => {
@@ -176,7 +176,7 @@ export default function Home() {
                 setError(message);
                 setLoading(false);
             });
-    }, [q]);
+    }, [query]);
 
     return (
         <div className="App">
@@ -187,7 +187,7 @@ export default function Home() {
                             style={{ color: "#ffffff", marginTop: "14px" }}
                             level={3}
                         >
-                            OMDB API + React
+                            Movie Search
                         </TextTitle>
                     </div>
                 </Header>
