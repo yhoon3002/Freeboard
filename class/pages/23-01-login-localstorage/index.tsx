@@ -38,9 +38,10 @@ export default function LoginPage() {
     });
     const accessToken = result.data.loginUser.accessToken;
     setAccessToken(accessToken);
+    localStorage.setItem("accessToken", accessToken);
     console.log(accessToken);
     alert("로그인에 성공하였습니다.");
-    router.push("/22-02-login-success");
+    router.push("/23-02-login-localstorage-success");
   };
 
   return (
