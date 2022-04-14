@@ -2,9 +2,11 @@ import styled from "@emotion/styled";
 import Slider from "react-slick";
 
 export const Wrapper = styled.div`
-    width: 1920px;
+    width: 100%;
     height: 400px;
     margin: 0 auto;
+    padding-right: 0px;
+    padding-left: 0px;
 `;
 
 export const SliderWrapper = styled(Slider)``;

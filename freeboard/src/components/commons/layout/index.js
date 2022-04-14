@@ -5,11 +5,11 @@ import styled from "@emotion/styled";
 import { useRouter } from "next/router";
 
 const Wrapper = styled.div`
-    width: 1920px;
+    width: 100%;
     margin: 0px auto;
 `;
 
-const HIDDEN = ["/", "/login"];
+const HIDDEN = ["/login"];
 
 const Layout = (props) => {
     const router = useRouter();

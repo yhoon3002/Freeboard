@@ -9,7 +9,7 @@ export default function MyApp({ Component, pageProps }) {
         <RecoilRoot>
             <ApolloSetting>
                 <Layout>
-                    <Component {...pageProps} />;
+                    <Component {...pageProps} />
                 </Layout>
             </ApolloSetting>
         </RecoilRoot>

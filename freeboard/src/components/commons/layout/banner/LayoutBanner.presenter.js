@@ -8,7 +8,7 @@ import * as S from "./LayoutBanner.styles";
 const LayoutBannerPresenter = () => {
     const settings = {
         className: "center",
-        centerMode: true,
+        centerMode: false,
         infinite: true,
         speed: 500,
         slidesToShow: 3,
@@ -16,9 +16,9 @@ const LayoutBannerPresenter = () => {
         autoplay: true,
         speed: 10,
         autoplaySpeed: 10,
-        cssEase: "linear",
         pauseOnHover: true,
         fade: true,
+        arrows: false,
     };
 
     return (
