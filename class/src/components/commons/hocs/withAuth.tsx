@@ -2,6 +2,7 @@
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
+// Component : LoginSuccessPage, props : ...pageProps
 export const withAuth = (Component) => (props) => {
   const router = useRouter();
 

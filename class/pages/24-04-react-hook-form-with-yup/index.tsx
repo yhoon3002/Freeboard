@@ -3,7 +3,7 @@
 
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup"; // 모든 export 한 것들을 import 하는데 이름을 yup으로 할것이다ㅏ.
+import * as yup from "yup";
 import styled from "@emotion/styled";
 
 const schema = yup

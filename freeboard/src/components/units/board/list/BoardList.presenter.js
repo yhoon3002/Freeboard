@@ -2,7 +2,7 @@
 
 import * as S from "./BoardList.styles";
 
-const BoardListPresenter = (props) => {
+export default function BoardListPresenter(props) {
     return (
         <S.Wrapper>
             <S.SearchTool>
@@ -50,6 +50,4 @@ const BoardListPresenter = (props) => {
             </table>
         </S.Wrapper>
     );
-};
-
-export default BoardListPresenter;
+}

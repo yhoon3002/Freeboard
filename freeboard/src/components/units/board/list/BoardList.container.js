@@ -5,7 +5,6 @@ import Pagination01Container from "../../../commons/pagination/01/Pagination01.c
 import { FETCH_BOARDS, FETCH_BOARDS_COUNT } from "./BoardList.queries";
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
-import { useState } from "react";
 
 const BoardListContainer = () => {
     const router = useRouter();
@@ -28,6 +27,7 @@ const BoardListContainer = () => {
             <Pagination01Container
                 refetch={refetch}
                 count={dataBoardsCount?.fetchBoardsCount}
+                onClickMovetoDetail={onClickMovetoDetail}
             />
         </div>
     );

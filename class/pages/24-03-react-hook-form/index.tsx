@@ -1,6 +1,6 @@
 // 터미널 - yarn add react-hook-form 설치
 // 자세한 정보 : react-hook-form-com
-
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 interface IFormValues {
@@ -30,3 +30,36 @@ export default function ReactHookFormPage() {
     </form>
   );
 }
+
+// export default function NotUsingReactHookFormPage() {
+//   const [writer, setWriter] = useState("");
+//   const [title, setTitle] = useState("");
+//   const [contents, setContents] = useState("");
+
+//   const onChangeWriter = (e: any) => {
+//     setWriter(e.target.value);
+//   };
+
+//   const onChangeTitle = (e: any) => {
+//     setTitle(e.target.value);
+//   };
+
+//   const onChangeContents = (e: any) => {
+//     setContents(e.target.value);
+//   };
+
+//   const onClickButton = () => {
+//     console.log(writer);
+//     console.log(title);
+//     console.log(contents);
+//   };
+
+//   return (
+//     <>
+//       작성자 : <input type="text" onChange={onChangeWriter} />
+//       제목 : <input type="text" onChange={onChangeTitle} />
+//       내용 : <input type="text" onChange={onChangeContents} />
+//       <button onClick={onClickButton}>등록하기</button>
+//     </>
+//   );
+// }

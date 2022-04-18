@@ -3,7 +3,7 @@ import { PresetColorTypes } from "antd/lib/_util/colors";
 import { useState } from "react";
 import Pagination01Presenter from "./Pagination01.presenter";
 
-const Pagination01Container = (props) => {
+export default function Pagination01Container(props) {
     const [startPage, setStartPage] = useState(1);
     const lastPage = Math.ceil(props.count / 10);
     const [currentPage, setCurrentPage] = useState(1);
@@ -47,6 +47,4 @@ const Pagination01Container = (props) => {
             onClickNextArrow={onClickNextArrow}
         />
     );
-};
-
-export default Pagination01Container;
+}
