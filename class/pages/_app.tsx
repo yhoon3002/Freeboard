@@ -30,7 +30,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <ApolloSetting>
         <Global styles={globalStyles} />
         <Layout>
-          <Component {...pageProps} />;
+          <Component {...pageProps} />
         </Layout>
       </ApolloSetting>
     </RecoilRoot>
