@@ -19,6 +19,7 @@
         "antd": "^4.19.2",
         "apollo-upload-client": "^17.0.0",
         "axios": "^0.26.1",
+        "dompurify": "^2.3.6",
         "graphql": "^16.3.0",
         "lodash": "^4.17.21",
         "next": "12.1.0",
