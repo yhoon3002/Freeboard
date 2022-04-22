@@ -2,6 +2,7 @@
 
 import * as S from "./BoardFetch.styles";
 import { Tooltip } from "antd";
+
 const BoardFetchPresenter = (props) => {
   return (
     <S.WrapperParent>
@@ -39,7 +40,16 @@ const BoardFetchPresenter = (props) => {
         <S.Line></S.Line>
         <S.Context>
           <S.Title>{props.data?.fetchBoard?.title}</S.Title>
-          <S.TitleImg></S.TitleImg>
+          <S.ImageWrapper>
+            {props.data?.fetchBoard.images
+              ?.filter((el) => el)
+              .map((el) => (
+                <S.TitleImg
+                  key={el}
+                  src={`https://storage.googleapis.com/${el}`}
+                />
+              ))}
+          </S.ImageWrapper>
           <S.Contents>{props.data?.fetchBoard?.contents}</S.Contents>
           <S.Youtube
             url={props.data?.fetchBoard?.youtubeUrl}

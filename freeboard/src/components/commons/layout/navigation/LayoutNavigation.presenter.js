@@ -3,7 +3,7 @@ import * as S from "./LayoutNavigation.styles";
 
 const NavigationMenus = [
   { name: "자유게시판", page: "/boards" },
-  { name: "중고마켓", page: "/market" },
+  { name: "중고마켓", page: "/markets" },
   { name: "마이페이지", page: "/myPage" },
   { name: "영화검색", page: "/" },
 ];
