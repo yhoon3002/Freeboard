@@ -2,7 +2,6 @@
 
 import styled from "@emotion/styled";
 import reactPlayer from "react-player";
-import { Tooltip } from "antd";
 
 export const WrapperParent = styled.div`
   width: 1200px;
