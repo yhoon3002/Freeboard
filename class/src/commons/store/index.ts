@@ -12,7 +12,7 @@ export const accessTokenState = atom({
   default: "",
 });
 
-// class - pages - 24-01-login-use-apollo-clinet에서 사용
+// class - pages - 24-01-login-use-apollo-client에서 사용
 export const userInfoState = atom({
   key: "userInfoState",
   default: {

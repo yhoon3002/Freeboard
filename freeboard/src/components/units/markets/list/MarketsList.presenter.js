@@ -1,4 +1,5 @@
 import * as S from "./MarketsList.styles";
+import InfiniteScroll from "react-infinite-scroller";
 
 export default function MarketListPresenter(props) {
   return (
@@ -16,54 +17,65 @@ export default function MarketListPresenter(props) {
         <S.SearchProductButton>검색</S.SearchProductButton>
       </S.MenuBar>
       <S.Line></S.Line>
-      <S.ItemList>
-        {props?.data?.fetchUseditems.map((el) => (
-          <S.ProductKey
-            onClick={props.onClickProduct(el)}
-            id={el._id}
-            key={el._id}
-          >
-            <S.ProductImage
-              src={
-                el.images[0]
-                  ? `https://storage.googleapis.com/${el.images[0]}`
-                  : "./image/noimg/noimg.png"
-              }
-            ></S.ProductImage>
-            <S.ProductWrapper>
-              <S.ProductInfo>
-                <S.ProductName>{el.name}</S.ProductName>
-                {el?.remarks ? (
-                  <S.ProductRemarks>{el.remarks}</S.ProductRemarks>
-                ) : (
-                  <S.NoProductRemakrs></S.NoProductRemakrs>
-                )}
-                <S.TagsWrapper>
-                  {el.tags[0] ? (
-                    el.tags.map((el) => <S.ProductTags>{el}</S.ProductTags>)
-                  ) : (
-                    <S.NoProductTags></S.NoProductTags>
-                  )}
-                </S.TagsWrapper>
-                <S.ProductSellerPickedCount>
-                  <S.ProductSeller>
-                    <S.ProductSellerImage src="./image/grayprofile/grayprofile.png" />
-                    {el.seller.name}
-                  </S.ProductSeller>
-                  <S.ProductPickedCount>
-                    <S.ProductPickedCountImage src="./image/yellowheart/yellowheart.png" />
-                    {el.pickedCount}
-                  </S.ProductPickedCount>
-                </S.ProductSellerPickedCount>
-              </S.ProductInfo>
-            </S.ProductWrapper>
-            <S.ProductPrice>
-              <S.ProductPriceImage src="./image/price/price2.png" />
-              {el.price} 원
-            </S.ProductPrice>
-          </S.ProductKey>
-        ))}
-      </S.ItemList>
+      <S.InfiniteWrapper>
+        <InfiniteScroll
+          pageStart={0}
+          loadMore={props.onLoadMore}
+          hasMore={true}
+          useWindow={false}
+        >
+          <S.ItemList>
+            {props?.data?.fetchUseditems.map((el) => (
+              <S.ProductKey
+                onClick={props.onClickProduct(el)}
+                id={el._id}
+                key={el._id}
+              >
+                <S.ProductImage
+                  src={
+                    el.images[0]
+                      ? `https://storage.googleapis.com/${el.images[0]}`
+                      : "./image/noimg/noimg.png"
+                  }
+                ></S.ProductImage>
+                <S.ProductWrapper>
+                  <S.ProductInfo>
+                    <S.ProductName>{el.name}</S.ProductName>
+                    {el?.remarks ? (
+                      <S.ProductRemarks>{el.remarks}</S.ProductRemarks>
+                    ) : (
+                      <S.NoProductRemakrs></S.NoProductRemakrs>
+                    )}
+                    <S.TagsWrapper>
+                      {el?.tags &&
+                        el?.tags?.map((el) => (
+                          <S.ProductTags>{el}</S.ProductTags>
+                        ))}
+                      {/* // : (
+                      //   <S.NoProductTags></S.NoProductTags>
+                      // )} */}
+                    </S.TagsWrapper>
+                    <S.ProductSellerPickedCount>
+                      <S.ProductSeller>
+                        <S.ProductSellerImage src="./image/grayprofile/grayprofile.png" />
+                        {el.seller.name}
+                      </S.ProductSeller>
+                      <S.ProductPickedCount>
+                        <S.ProductPickedCountImage src="./image/yellowheart/yellowheart.png" />
+                        {el.pickedCount}
+                      </S.ProductPickedCount>
+                    </S.ProductSellerPickedCount>
+                  </S.ProductInfo>
+                </S.ProductWrapper>
+                <S.ProductPrice>
+                  <S.ProductPriceImage src="./image/price/price2.png" />
+                  {el.price} 원
+                </S.ProductPrice>
+              </S.ProductKey>
+            ))}
+          </S.ItemList>
+        </InfiniteScroll>
+      </S.InfiniteWrapper>
     </S.Wrapper>
   );
 }

@@ -5,7 +5,7 @@ import { FETCH_USED_ITEMS } from "./MarketsList.queries";
 
 export default function MarketListContainer() {
   const router = useRouter();
-  const { data } = useQuery(FETCH_USED_ITEMS);
+  const { data, fetchMore } = useQuery(FETCH_USED_ITEMS);
 
   const onClickProduct = (el) => (e) => {
     router.push(`/markets/${e.currentTarget.id}`);
@@ -31,5 +31,31 @@ export default function MarketListContainer() {
     localStorage.setItem("baskets", JSON.stringify(baskets));
   };
 
-  return <MarketListPresenter data={data} onClickProduct={onClickProduct} />;
+  const onLoadMore = () => {
+    if (!data) return;
+
+    fetchMore({
+      variables: {
+        page: Math.ceil(data?.fetchUseditems.length / 10) + 1,
+      },
+      updateQuery: (prev, { fetchMoreResult }) => {
+        if (!fetchMoreResult?.fetchUseditems)
+          return { fetchUseditems: [...prev.fetchUseditems] };
+        return {
+          fetchUseditems: [
+            ...prev.fetchUseditems,
+            ...fetchMoreResult.fetchUseditems,
+          ],
+        };
+      },
+    });
+  };
+
+  return (
+    <MarketListPresenter
+      data={data}
+      onClickProduct={onClickProduct}
+      onLoadMore={onLoadMore}
+    />
+  );
 }

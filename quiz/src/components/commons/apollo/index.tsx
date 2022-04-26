@@ -6,14 +6,13 @@ import {
 } from "@apollo/client";
 import { onError } from "@apollo/client/link/error";
 import { createUploadLink } from "apollo-upload-client";
-import { accessTokenState, userInfoState } from "../../../commons/store";
+import { accessTokenState } from "../../../commons/store";
 import { useRecoilState } from "recoil";
 import { useEffect } from "react";
 import { getAccessToken } from "../../../commons/libraries/getAccessToken";
 
 export default function ApolloSetting(props) {
   const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
-  const [, setUserInfo] = useRecoilState(userInfoState);
 
   // 1. 더이상 지원되지 않음
   // if(process.browser){

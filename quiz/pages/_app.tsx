@@ -5,7 +5,7 @@ import { AppProps } from "next/app";
 import { RecoilRoot } from "recoil";
 import { globalStyles } from "../src/commons/styles/globalStyles";
 import Layout from "../src/components/commons/layout";
-import ApolloSetting from "../src/commons/apollo";
+import ApolloSetting from "../src/components/commons/apollo";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

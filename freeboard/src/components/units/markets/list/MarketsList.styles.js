@@ -126,6 +126,7 @@ export const TagsWrapper = styled.div`
 `;
 
 export const ProductTags = styled.div`
+  height: 50.141px;
   font-family: "Noto Sans CJK KR";
   font-style: normal;
   font-weight: 500;
@@ -188,4 +189,9 @@ export const ProductPriceImage = styled.img`
   width: 20px;
   height: 20px;
   margin-right: 11px;
+`;
+
+export const InfiniteWrapper = styled.div`
+  height: 800px;
+  overflow: auto;
 `;

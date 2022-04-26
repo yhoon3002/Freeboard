@@ -4,9 +4,12 @@ import { FETCH_USED_ITEM } from "./MarketsDetail.queries";
 import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import { Modal } from "antd";
 
 export default function MarketsDetailContainer() {
   const router = useRouter();
+
+  const [isClickedAddress, setIsClickedAddress] = useState(false);
 
   const { data } = useQuery(FETCH_USED_ITEM, {
     variables: {
@@ -14,7 +17,21 @@ export default function MarketsDetailContainer() {
     },
   });
 
-  console.log(data?.fetchUseditem?.useditemAddress);
+  console.log(data?.fetchUseditem);
+
+  const onClickProductAddressInput01 = () => {
+    setIsClickedAddress(true);
+  };
+
+  const handleOk = () => {
+    setIsClickedAddress(false);
+  };
+
+  const handleCancel = () => {
+    setIsClickedAddress(false);
+  };
+
+  const handleComplete = (data) => {};
 
   const onClickMoveToMarketList = () => {
     router.push("/markets");
@@ -97,6 +114,10 @@ export default function MarketsDetailContainer() {
     <MarketsDetailPresenter
       data={data}
       onClickMoveToMarketList={onClickMoveToMarketList}
+      onClickProductAddressInput01={onClickProductAddressInput01}
+      handleOk={handleOk}
+      handleCancel={handleCancel}
+      handleComplete={handleComplete}
     />
   );
 }
