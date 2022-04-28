@@ -2,9 +2,9 @@
 import { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { useRouter } from "next/router";
-import { useRecoilState } from "recoil";
 import LoginPresenter from "./Login.presenter";
 import { LOGIN_USER } from "./Login.queries";
+import { useRecoilState } from "recoil";
 import { accessTokenState } from "../../commons/store/index";
 
 const LoginContainer = () => {
@@ -16,6 +16,7 @@ const LoginContainer = () => {
 
   const onChangeEmail = (e) => {
     setEmail(e.target.value);
+    console.log("dddd");
   };
 
   const onChangePassword = (e) => {
@@ -23,18 +24,22 @@ const LoginContainer = () => {
   };
 
   const onClickLogin = async () => {
-    const result = await loginUser({
-      variables: {
-        email: email,
-        password: password,
-      },
-    });
-    const accessToken = result.data.loginUser.accessToken;
-    setAccessToken(accessToken);
-    localStorage.setItem("accessToken", accessToken);
-    console.log(accessToken);
-    alert("로그인 성공");
-    router.push("/boards");
+    try {
+      const result = await loginUser({
+        variables: {
+          email: email,
+          password: password,
+        },
+      });
+
+      console.log(result);
+      const accessToken = result.data.loginUser.accessToken;
+      setAccessToken(accessToken);
+      console.log(accessToken);
+      router.push("/markets");
+    } catch (error) {
+      alert("error.message");
+    }
   };
 
   return (

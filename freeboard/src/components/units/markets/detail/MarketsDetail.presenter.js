@@ -72,7 +72,7 @@ export default function MarketsDetailPresenter(props) {
           <S.Tags>
             {props.data?.fetchUseditem?.tags[0] ? (
               props.data?.fetchUseditem?.tags.map((el) => (
-                <S.ProductTags>#{el}</S.ProductTags>
+                <S.ProductTags>{el}</S.ProductTags>
               ))
             ) : (
               <S.NoProductTags></S.NoProductTags>

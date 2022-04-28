@@ -205,11 +205,11 @@ export const ProductLngLat = styled.div`
 `;
 
 export const ProductLAT = styled.input`
-  width: 108px;
+  width: 300px;
   height: 52px;
   border: 1px solid #bdbdbd;
   margin-right: 21px;
-  padding-left: 20px;
+  padding-left: 15px;
 
   font-family: "Noto Sans CJK KR";
   font-style: normal;
@@ -227,10 +227,10 @@ export const ProductLocationImage = styled.img`
 `;
 
 export const ProductLNG = styled.input`
-  width: 108px;
+  width: 300px;
   height: 52px;
   border: 1px solid #bdbdbd;
-  padding-left: 20px;
+  padding-left: 15px;
 
   font-family: "Noto Sans CJK KR";
   font-style: normal;
