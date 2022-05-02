@@ -43,8 +43,8 @@ export default function MarketsCreatePresenter(props) {
             <ReactQuill
               onChange={props.handleChange}
               value={
-                props.getValue("contents") ||
-                props.data?.fetchUseditem.contents ||
+                props.getValues("contents") ||
+                // props.data?.fetchUseditem.contents ||
                 ""
               }
             />

@@ -1,13 +1,18 @@
 // This Is For Markets Detail Container Component
 import MarketsDetailPresenter from "./MarketsDetail.presenter";
-import { FETCH_USED_ITEM } from "./MarketsDetail.queries";
+import {
+  FETCH_USED_ITEM,
+  TOGGLE_USED_ITEM_PICK,
+  FETCH_USER_LOGGED_IN,
+} from "./MarketsDetail.queries";
 import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
-import { Modal } from "antd";
+import { useEffect, useState } from "react";
 
 export default function MarketsDetailContainer() {
   const router = useRouter();
+  const [isClickedPickedCountImage, setIsClickedPickedCountImage] =
+    useState(false);
 
   const { data } = useQuery(FETCH_USED_ITEM, {
     variables: {
@@ -15,10 +20,36 @@ export default function MarketsDetailContainer() {
     },
   });
 
-  console.log(data?.fetchUseditem);
+  const { data: userData } = useQuery(FETCH_USER_LOGGED_IN);
+
+  const [toggleUseditemPick] = useMutation(TOGGLE_USED_ITEM_PICK);
+
+  const onClickPickedCountImage = async () => {
+    setIsClickedPickedCountImage((prev) => !prev);
+    try {
+      await toggleUseditemPick({
+        variables: {
+          useditemId: router.query.useditemId,
+        },
+        refetchQueries: [
+          {
+            query: FETCH_USED_ITEM,
+            variables: { useditemId: router.query.useditemId },
+          },
+        ],
+      });
+    } catch (error) {
+      alert(error.message);
+    }
+  };
 
   const onClickMoveToMarketList = () => {
     router.push("/markets");
+  };
+
+  const onClickToBuyButton = () => {
+    // data?.fetchUseditem?.seller._id === userData?.fetchUserLoggedIn._id ?
+    router.push(`/markets/${router.query.useditemId}/edit`);
   };
 
   useEffect(() => {
@@ -97,7 +128,11 @@ export default function MarketsDetailContainer() {
   return (
     <MarketsDetailPresenter
       data={data}
+      userData={userData}
       onClickMoveToMarketList={onClickMoveToMarketList}
+      onClickPickedCountImage={onClickPickedCountImage}
+      isClickedPickedCountImage={isClickedPickedCountImage}
+      onClickToBuyButton={onClickToBuyButton}
     />
   );
 }

@@ -5,13 +5,13 @@ import { RecoilRoot } from "recoil";
 import ApolloSetting from "../src/components/commons/apollo/index";
 
 export default function MyApp({ Component, pageProps }) {
-    return (
-        <RecoilRoot>
-            <ApolloSetting>
-                <Layout>
-                    <Component {...pageProps} />
-                </Layout>
-            </ApolloSetting>
-        </RecoilRoot>
-    );
+  return (
+    <RecoilRoot>
+      <ApolloSetting>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ApolloSetting>
+    </RecoilRoot>
+  );
 }

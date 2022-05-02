@@ -1,5 +1,4 @@
 import LazyLoad from "react-lazyload";
-import { lazy } from "react";
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`

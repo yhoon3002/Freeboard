@@ -16,7 +16,7 @@ const schema = yup.object({
   price: yup.number().required("가격을 입력해주세요."),
 });
 
-export default function MarketsCreateContainer() {
+export default function MarketsCreateContainer(props) {
   const router = useRouter();
 
   // 주소용 state
@@ -33,11 +33,18 @@ export default function MarketsCreateContainer() {
   const [createUseditem] = useMutation(CREATE_USED_ITEM);
 
   // form
-  const { register, handleSubmit, formState, setValue, getValues, trigger } =
-    useForm({
-      resolver: yupResolver(schema),
-      mode: "onChange",
-    });
+  const {
+    register,
+    handleSubmit,
+    formState,
+    setValue,
+    getValues,
+    trigger,
+    reset,
+  } = useForm({
+    resolver: yupResolver(schema),
+    mode: "onChange",
+  });
 
   // 카카오 맵
   useEffect(() => {
@@ -95,8 +102,11 @@ export default function MarketsCreateContainer() {
 
   // 상품 설명
   const handleChange = (value) => {
-    setValue("contents", value === "<p><br></p>" ? "" : value);
-
+    props.isEdit
+      ? useEffect(() => {
+          reset({ contents: props.data?.fetchUseditem.contents });
+        }, [props.data])
+      : setValue("contents", value === "<p><br></p>" ? "" : value);
     trigger("contents");
   };
 

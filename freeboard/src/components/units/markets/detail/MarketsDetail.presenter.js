@@ -40,8 +40,17 @@ export default function MarketsDetailPresenter(props) {
             <S.ItemPrice>{props.data?.fetchUseditem?.price} 원</S.ItemPrice>
           </S.ItemInfo>
           <S.PickedCountWrapper>
-            <S.PickedCountImage src="/image/yellowheart/yellowheart.png"></S.PickedCountImage>
-            <S.PickedCount>0</S.PickedCount>
+            <S.PickedCountImage
+              src={
+                props.isClickedPickedCountImage
+                  ? "/image/yellowheart/yellowheart.png"
+                  : "/image/heart/heart.png"
+              }
+              onClick={props.onClickPickedCountImage}
+            ></S.PickedCountImage>
+            <S.PickedCount>
+              {props.data?.fetchUseditem?.pickedCount}
+            </S.PickedCount>
           </S.PickedCountWrapper>
         </S.MiddleFirst>
         <S.Carousel>캐러셀 들어갈 자리(라이브러리 써라)</S.Carousel>
@@ -88,7 +97,12 @@ export default function MarketsDetailPresenter(props) {
           <S.ToListbutton onClick={props.onClickMoveToMarketList}>
             목록으로
           </S.ToListbutton>
-          <S.ToBuyButton>구매하기</S.ToBuyButton>
+          <S.ToBuyButton onClick={props.onClickToBuyButton}>
+            {props.data?.fetchUseditem?.seller._id ===
+            props.userData?.fetchUserLoggedIn._id
+              ? "수정하기"
+              : "구매하기"}
+          </S.ToBuyButton>
         </S.ButtonList>
       </S.Wrapper2>
       <S.LongLine />

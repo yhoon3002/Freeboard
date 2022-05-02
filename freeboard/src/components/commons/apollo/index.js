@@ -18,6 +18,13 @@ export default function ApolloSetting(props) {
     getAccessToken().then((newAccessToken) => {
       setAccessToken(newAccessToken);
     });
+
+    // 새로고침 2번 방법
+    // setIsLoaded(true);
+    // getAccessToken().then((newAccessToken) => {
+    //   setAccessToken(newAccessToken);
+    //   setIsLoaded(false);
+    // });
   }, []);
 
   const errorLink = onError(({ graphQLErrors, operation, forward }) => {

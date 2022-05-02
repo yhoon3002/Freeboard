@@ -22,9 +22,30 @@ export const FETCH_USED_ITEM = gql`
         lng
       }
       seller {
+        _id
         name
         picture
       }
     }
   }
 `;
+
+export const TOGGLE_USED_ITEM_PICK = gql`
+  mutation toggleUseditemPick($useditemId: ID!) {
+    toggleUseditemPick(useditemId: $useditemId)
+  }
+`;
+
+export const FETCH_USER_LOGGED_IN = gql`
+  query fetchUserLoggedIn {
+    fetchUserLoggedIn {
+      _id
+    }
+  }
+`;
+
+// export const FETCH_USED_ITEMS_COUNT_IPICKED = gql`
+//   query fetchUseditemsCountIPicked {
+//     fetchUseditemsCountIPicked
+//   }
+// `;
